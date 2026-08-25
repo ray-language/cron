@@ -1,13 +1,16 @@
 > **Espejo de solo lectura** — publicado desde
-> [\](https://github.com/roberto-ayala/raylang/tree/main/packages/cron);
+> [`raylang/packages/cron`](https://github.com/roberto-ayala/raylang/tree/main/packages/cron);
 > el desarrollo y los PRs van al monorepo.
 >
-> **Instalación** — en tu \:
+> **Instalación** — en tu `ray.toml`:
 >
-> \\\
+> ```toml
+> [registry]
+> index = "git+https://github.com/ray-language/ray-index@main"
+> ```
 >
-> y \ — o la dependencia directa:
-> \.
+> y `ray add cron` — o la dependencia directa:
+> `cron = "git+https://github.com/ray-language/cron@v0.1.0"`.
 
 # packages/cron — expresiones cron + timers recurrentes (M86, v1 UTC)
 
