@@ -1,0 +1,11 @@
+# Manifiesto del paquete-librería `cron` (sin entry: los imports `cron/…` se resuelven
+# contra el directorio padre — ver deps::dependency_roots_for).
+[package]
+name = "cron"
+version = "0.1.0"
+entry = "cron.ray"
+
+# cron/local (cron en hora LOCAL) importa tz/tz: la dependencia va declarada (M135b — antes
+# funcionaba de casualidad porque tz vive al lado como path-dep del consumidor).
+[dependencies]
+tz = "git+https://github.com/ray-language/tz@v0.1.0"
