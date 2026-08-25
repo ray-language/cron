@@ -1,3 +1,5 @@
+# packages/cron — expresiones cron + timers recurrentes (M86, v1 UTC)
+
 > **Espejo de solo lectura** — publicado desde
 > [`raylang/packages/cron`](https://github.com/roberto-ayala/raylang/tree/main/packages/cron);
 > el desarrollo y los PRs van al monorepo.
@@ -12,7 +14,6 @@
 > y `ray add cron` — o la dependencia directa:
 > `cron = "git+https://github.com/ray-language/cron@v0.1.0"`.
 
-# packages/cron — expresiones cron + timers recurrentes (M86, v1 UTC)
 
 ```rust
 import cron/cron;
