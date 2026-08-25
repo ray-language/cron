@@ -1,3 +1,14 @@
+> **Espejo de solo lectura** — publicado desde
+> [\](https://github.com/roberto-ayala/raylang/tree/main/packages/cron);
+> el desarrollo y los PRs van al monorepo.
+>
+> **Instalación** — en tu \:
+>
+> \\\
+>
+> y \ — o la dependencia directa:
+> \.
+
 # packages/cron — expresiones cron + timers recurrentes (M86, v1 UTC)
 
 ```rust
