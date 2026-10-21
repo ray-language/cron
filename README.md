@@ -1,18 +1,17 @@
 # packages/cron — expresiones cron + timers recurrentes (M86, v1 UTC)
 
-> **Espejo de solo lectura** — publicado desde
-> [`raylang/packages/cron`](https://github.com/ray-language/raylang/tree/main/packages/cron);
-> el desarrollo y los PRs van al monorepo.
+> **Read-only mirror** — published from [`https://github.com/ray-language/raylang/tree/main/packages/cron`](https://github.com/ray-language/raylang/tree/main/packages/cron); development and pull requests go there.
 >
-> **Instalación** — en tu `ray.toml`:
+> **Install** — `ray add cron` in your project (the official index is the default), or by
+> hand in `ray.toml`:
 >
 > ```toml
-> [registry]
-> index = "git+https://github.com/ray-language/ray-index@main"
+> [dependencies]
+> cron = "^0.2.0"
 > ```
 >
-> y `ray add cron` — o la dependencia directa:
-> `cron = "git+https://github.com/ray-language/cron@v0.1.0"`.
+> Without an index, the direct git dependency:
+> `cron = "git+https://github.com/ray-language/cron@v0.2.0"`.
 
 
 ```rust
@@ -36,8 +35,11 @@ spawn(fn() { cron.run(s, fn() { print("tick"); }); });   // runner cooperativo
 - **Hora local (M86b)**: `import cron/local;` (+ `packages/tz` como dependencia hermana) —
   `local.next_after_in(s, zona, ms)` / `local.run_in(s, zona, job)` evalúan el schedule en
   la hora CIVIL de la zona. Política DST: una hora del **hueco** de primavera dispara al
-  acabar el hueco; una del **solape** de otoño dispara solo la PRIMERA vez. Módulo aparte
-  para que el cron UTC no arrastre la dependencia tz.
+  acabar el hueco; una del **solape** de otoño dispara solo la PRIMERA vez si el schedule fija la
+  hora (`30 2 * * *`), y en las DOS pasadas si corre cada hora (`0 * * * *`, `*/15 * * * *`), para
+  que el espaciado real se mantenga (0.2.0, raycron #202). Con `tz.system()` corre en la hora
+  local del sistema, también en Windows. Módulo aparte para que el cron UTC no arrastre la
+  dependencia tz.
 
 ## Licencia
 
